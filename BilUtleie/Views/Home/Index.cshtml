@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BilUtleie.Models.UtleieViewModels>
+@using BilUtleie.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div id="content-wrapper">
+    @if (Model != null)
+    { 
+    <div class="container-fluid">
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Data Table Example
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                        <tr>
+                            <th>Leieforhold ID </th>
+                            <th>Leietaker Navn</th>
+                            <th>Bil Navn</th>
+                            <th>Pris</th>
+                        </tr>
+                        @foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@data.LeieforholdId</td>
+                                <td>@data.LeietakerFornavn @data.LeietakerEtternavn </td>
+                                <td>@data.BilMerke @data.BilModell </td>
+                                <td>@data.Pris </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
